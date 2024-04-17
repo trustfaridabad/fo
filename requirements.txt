@@ -8,3 +8,4 @@ plotly
 matplotlib
 scikit-learn
 xgboost
+TA-Lib
