@@ -10,7 +10,7 @@ import datetime as dt
 import warnings
 warnings.filterwarnings('ignore')
 import streamlit as st
-import talib
+
 
 # Add a horizontal rule and then display the centered title
 
