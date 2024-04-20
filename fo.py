@@ -38,6 +38,8 @@ tickers = pd.read_csv("fo_symbol.csv") +".NS"
 
 # Get List of NSE 500
 tickers = tickers['SYMBOL'].values
+additional_symbols = ['^NSEBANK','^NSEI']
+tickers = np.append(tickers, additional_symbols)
 
 # define interval
 begin_time = datetime.today()-timedelta(days=90)
