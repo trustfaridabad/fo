@@ -90,8 +90,15 @@ data = data[(data['RSI'] < max_value) & (data['RSI'] > min_value)]
 filter_text = st.sidebar.selectbox("Filter text", tickers)
 
 # Filter the DataFrame
-filtered_df = data[data['Ticker'].str.contains(filter_text, case=False)]
-st.dataframe(filtered_df, hide_index = True)
+
+if filter_text:
+    filtered_df = df[df['Symbol'].str.contains(filter_text, case=False)]
+    st.dataframe(filtered_df,  hide_index = True)
+else:
+    st.dataframe(data,  hide_index = True)
+    
+#filtered_df = data[data['Ticker'].str.contains(filter_text, case=False)]
+#st.dataframe(filtered_df, hide_index = True)
 
 #st.table(data)
 st.sidebar.info("Designed by Shiv")
