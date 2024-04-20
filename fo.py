@@ -77,7 +77,7 @@ df_with_ta = grouped_data.apply(apply_ta).reset_index(drop=True)
 df_with_ta = df_with_ta[['Date','Ticker','Close', 'Volume', 'Ch%', 'RSI', 'Supertrend','Signal']]
 data = df_with_ta.drop_duplicates(subset=['Ticker'], keep='last')
 data['Date'] = pd.to_datetime(data['Date']).dt.date
-RSI = st.sidebar.slider('Select RSI input', 20, 100, 40)
+RSI = st.sidebar.slider('Select RSI input', 0, 100, 40)
 
 data = data[data['RSI'] < RSI]
 st.dataframe(data, hide_index=True)
