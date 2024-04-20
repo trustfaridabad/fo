@@ -25,7 +25,7 @@ st.set_page_config(
 
 st.markdown("---")
 
-if st.sidebar.button("Clear Cache"):
+if st.button("Clear Cache"):
     # Clear cache data
     st.cache_data.clear()
     st.cache_resource.clear()
