@@ -90,7 +90,7 @@ max_value = st.sidebar.slider("Select maximum value:", min_value=min_value, max_
 
 data = data[(data['RSI'] < max_value) & (data['RSI'] > min_value)]
 # Display table
-ticker_selection = st.selectbox("Select Ticker", ["All"] + data['Ticker'].tolist())
+ticker_selection = st.sidebar.selectbox("Select Ticker", ["All"] + data['Ticker'].tolist())
 # Display data based on selection
 if ticker_selection == "All":
     st.dataframe(data)
