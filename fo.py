@@ -79,6 +79,10 @@ df_with_ta = grouped_data.apply(apply_ta).reset_index(drop=True)
 df_with_ta = df_with_ta[['Date','Ticker','Close', 'Volume', 'Ch%', 'RSI', 'Supertrend','Signal']]
 data = df_with_ta.drop_duplicates(subset=['Ticker'], keep='last')
 data['Date'] = pd.to_datetime(data['Date']).dt.date
+
+# Remove .NS suffix from tickers
+data['Ticker'] = data['Ticker'].str.replace('.NS', '')
+
 #RSI = st.sidebar.slider('Select RSI input', 0, 100, 40)
 # Define the minimum and maximum values for the range
 min_value = st.sidebar.slider("Select minimum value:", min_value=0.0, max_value=100.0, value=30.0)
@@ -86,7 +90,7 @@ max_value = st.sidebar.slider("Select maximum value:", min_value=min_value, max_
 
 data = data[(data['RSI'] < max_value) & (data['RSI'] > min_value)]
 # Display table
-ticker_selection = st.selectbox("Select Ticker", ["All"] + df['Ticker'].tolist())
+ticker_selection = st.selectbox("Select Ticker", ["All"] + data['Ticker'].tolist())
 # Display data based on selection
 if ticker_selection == "All":
     st.dataframe(data)
