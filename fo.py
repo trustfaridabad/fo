@@ -93,11 +93,11 @@ data = data[(data['RSI'] < max_value) & (data['RSI'] > min_value)]
 ticker_selection = st.sidebar.selectbox("Select Ticker", ["All"] + data['Ticker'].tolist())
 # Display data based on selection
 if ticker_selection == "All":
-    st.dataframe(data)
+    st.dataframe(data, hide_index=True)
 else:
     selected_data = data[data['Ticker'] == ticker_selection]
     
-    st.dataframe(selected_data)
+    st.dataframe(selected_data, hide_index=True)
 
 st.sidebar.info("Designed by Shiv")
 
