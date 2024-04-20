@@ -90,7 +90,7 @@ filter_col = st.sidebar.selectbox("Filter by", df.columns)
 filter_text = st.sidebar.text_input("Filter text")
 
 # Filter the DataFrame
-filtered_df = data[data[filter_col].str.contains(filter_text, case=False)]
+filtered_df = data[data['Ticker'].str.contains(filter_text, case=False)]
 st.dataframe(filtered_df, hide_index = True)
 
 #st.table(data)
