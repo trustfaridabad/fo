@@ -27,7 +27,8 @@ st.markdown("---")
 
 if st.button("Clear Cache"):
     # Clear cache data
-    st.caching.clear_cache()
+    st.cache_data.clear()
+    st.cache_resource.clear()
 
 # import nifty 500 stocks
 
