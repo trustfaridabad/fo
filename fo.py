@@ -87,7 +87,7 @@ max_value = st.sidebar.slider("Select maximum value:", min_value=min_value, max_
 data = data[(data['RSI'] < max_value) & (data['RSI'] > min_value)]
 # Display table
 #filter_col = st.sidebar.selectbox("Filter by", df.columns)
-filter_text = st.sidebar.selectbox("Filter text", tickers)
+filter_text = st.sidebar.selectbox("Filter text", tickers) + "ALL"
 
 # Filter the DataFrame
 
