@@ -85,6 +85,6 @@ min_value = st.sidebar.slider("Select minimum value:", min_value=0.0, max_value=
 max_value = st.sidebar.slider("Select maximum value:", min_value=min_value, max_value=100.0, value=75.0)
 
 data = data[(data['RSI'] < max_value) & (data['RSI'] > min_value)]
-st.table(data, hide_index=True)
+st.table(data)
 st.sidebar.info("Designed by Shiv")
 
