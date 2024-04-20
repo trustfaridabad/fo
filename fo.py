@@ -86,20 +86,14 @@ max_value = st.sidebar.slider("Select maximum value:", min_value=min_value, max_
 
 data = data[(data['RSI'] < max_value) & (data['RSI'] > min_value)]
 # Display table
-#filter_col = st.sidebar.selectbox("Filter by", df.columns)
-filter_text = st.sidebar.selectbox("Filter text", tickers) + "ALL"
-
-# Filter the DataFrame
-
-if filter_text:
-    filtered_df = data[data['Ticker'].str.contains(filter_text, case=False)]
-    st.dataframe(filtered_df,  hide_index = True)
+ticker_selection = st.selectbox("Select Ticker", ["All"] + df['Ticker'].tolist())
+# Display data based on selection
+if ticker_selection == "All":
+    st.dataframe(data)
 else:
-    st.dataframe(data,  hide_index = True)
+    selected_data = data[data['Ticker'] == ticker_selection]
     
-#filtered_df = data[data['Ticker'].str.contains(filter_text, case=False)]
-#st.dataframe(filtered_df, hide_index = True)
+    st.dataframe(selected_data)
 
-#st.table(data)
 st.sidebar.info("Designed by Shiv")
 
