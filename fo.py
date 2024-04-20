@@ -85,6 +85,14 @@ min_value = st.sidebar.slider("Select minimum value:", min_value=0.0, max_value=
 max_value = st.sidebar.slider("Select maximum value:", min_value=min_value, max_value=100.0, value=75.0)
 
 data = data[(data['RSI'] < max_value) & (data['RSI'] > min_value)]
-st.table(data)
+# Display table
+filter_col = st.sidebar.selectbox("Filter by", df.columns)
+filter_text = st.sidebar.text_input("Filter text")
+
+# Filter the DataFrame
+filtered_df = data[data[filter_col].str.contains(filter_text, case=False)]
+st.dataframe(filtered_df, hide_index = True)
+
+#st.table(data)
 st.sidebar.info("Designed by Shiv")
 
