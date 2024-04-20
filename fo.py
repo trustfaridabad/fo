@@ -92,7 +92,7 @@ filter_text = st.sidebar.selectbox("Filter text", tickers)
 # Filter the DataFrame
 
 if filter_text:
-    filtered_df = data[data['Symbol'].str.contains(filter_text, case=False)]
+    filtered_df = data[data['Ticker'].str.contains(filter_text, case=False)]
     st.dataframe(filtered_df,  hide_index = True)
 else:
     st.dataframe(data,  hide_index = True)
