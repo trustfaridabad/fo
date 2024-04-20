@@ -25,11 +25,6 @@ st.set_page_config(
 
 st.markdown("---")
 
-if st.sidebar.button("Clear Cache"):
-    # Clear cache data
-    st.cache_data.clear()
-    st.cache_resource.clear()
-
 # import nifty 500 stocks
 
 tickers = pd.read_csv("fo_symbol.csv") +".NS"
@@ -82,3 +77,7 @@ RSI = st.sidebar.slider('Select RSI input', 20, 100, 40)
 data = data[data['RSI'] < RSI]
 st.dataframe(data, hide_index=True)
 st.sidebar.info("Designed by Shiv")
+if st.sidebar.button("Clear Cache"):
+    # Clear cache data
+    st.cache_data.clear()
+    st.cache_resource.clear()
