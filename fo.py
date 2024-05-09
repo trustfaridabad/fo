@@ -71,7 +71,7 @@ def apply_ta(group_df):
 
     group_df['RSI'] = group_df.ta.rsi(length=22, append=True).round(2)
     group_df['Supertrend'] = group_df.ta.supertrend(period=13, multiplier=4, append=True)['SUPERT_7_4.0'].round(2)
-    group_df['Signal'] = np.where(group_df['Close'] > group_df['Supertrend'], "Buy", "Sell")
+    group_df['View'] = np.where(group_df['Close'] > group_df['Supertrend'], "Buy", "Sell")
     return group_df
 
 # Apply technical analysis using apply function
