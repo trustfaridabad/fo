@@ -76,7 +76,7 @@ def apply_ta(group_df):
 
 # Apply technical analysis using apply function
 df_with_ta = grouped_data.apply(apply_ta).reset_index(drop=True)
-df_with_ta = df_with_ta[['Date','Ticker','Close', 'Volume', 'Ch%', 'RSI', 'Supertrend','Signal']]
+df_with_ta = df_with_ta[['Date','Ticker','Close', 'Volume', 'Ch%', 'RSI', 'Supertrend','View']]
 data = df_with_ta.drop_duplicates(subset=['Ticker'], keep='last')
 data['Date'] = pd.to_datetime(data['Date']).dt.date
 
